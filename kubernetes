@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-pod
+  template:
+    metadata:
+      labels:
+        app: welcome-pod
+    spec:
+      containers:
+      - name: welcome-container
+        image: vinay0094k/welcome:welcome2024_image_jan15a
+        ports:
+        - containerPort: 8024
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1000Mi"
+          requests:
+            cpu: "300m"
+            memory: "300Mi
